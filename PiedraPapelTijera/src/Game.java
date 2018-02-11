@@ -1,7 +1,8 @@
 /**
  * Clase principal.
- * Versión 1.0
+ * Versión 1.1
  * Autor: Profesor Entorno Desarrollo
+ * Ampliado por Zoraida Alonso Mu�oz
  */
 public class Game {
 
@@ -12,7 +13,7 @@ public class Game {
 	}
 
 	private void welcome() {
-		System.out.println("Bienvenido a nuestro pequeño juego: Piedra Papel Tijeras :-D");
+		System.out.println("Bienvenido a nuestro pequeño juego: Piedra Papel Tijeras Lagartija Spock :-D");
 	}
 
 	private void printHelp() {
@@ -31,7 +32,7 @@ public class Game {
 			System.out.println("Es un empate\n");
 		else if (who == MoveWords.GANA)
 			System.out.println("Tu ganas!!! :-D \n");
-		else
+		else 
 			System.out.println("Tu pierdes!!! :-( \n");
 	}
 
@@ -76,6 +77,7 @@ public class Game {
 			round++;
 		}
 		System.out.println("Adios!!");
+		
 	}
 
 	public static void main(String[] args) {
@@ -83,5 +85,5 @@ public class Game {
 		g.welcome();
 		g.playGame();
 	}
-
+	
 }

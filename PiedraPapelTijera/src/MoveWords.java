@@ -6,8 +6,8 @@ public class MoveWords{
     public static final int GANA = 1;
     public static final int PIERDE = 2;
 
-    private static final String[] validMoves = {"TIJERAS", "PAPEL", "PIEDRA"};
-    private static final String[] validCommands = {"SALIR", "HELP"};
+    private static final String[] validMoves = {"TIJERAS", "PAPEL", "PIEDRA", "LAGARTIJA", "SPOCK"};
+    private static final String[] validCommands = {"SALIR", "AYUDA"};
 
     private Random rnd;
     
@@ -64,10 +64,24 @@ public class MoveWords{
 
 	    first_i = getIndex(first);
 	    second_i = getIndex(second);
-
-	    if (first_i == second_i) return EMPATE;
 	    
-	    return (( (first_i +1) % validMoves.length ) == second_i ) ? GANA: PIERDE;
+	    //Combinaciones ganadoras
+	    if (first_i == 0 && second_i == 1) return GANA;//Tijeras corta papel
+	    if (first_i == 0 && second_i == 3) return GANA;//Tijeras decapita lagartija  
+	    if (first_i == 1 && second_i == 2) return GANA;//Papel cubre piedra
+	    if (first_i == 1 && second_i == 4) return GANA;//Papel refuta spock 
+	    if (first_i == 2 && second_i == 3) return GANA;//Piedra golpea lagartija
+	    if (first_i == 2 && second_i == 0) return GANA;//Piedra aplasta tijeras  
+	    if (first_i == 3 && second_i == 4) return GANA;//Lagartija envenena spock
+	    if (first_i == 3 && second_i == 1) return GANA;//Lagartija come papel  
+	    if (first_i == 4 && second_i == 0) return GANA;//Spock chafa tijeras
+	    if (first_i == 4 && second_i == 2) return GANA;//Spock vaporiza piedra
+	   //Empate
+	    if (first_i == second_i) return EMPATE;
+	    //Resto de combinaciones (las perdedoras)
+	    else {
+	    	return PIERDE;
+	    }
 	}
-	
 } 
+
